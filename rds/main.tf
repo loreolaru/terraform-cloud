@@ -1,4 +1,6 @@
-data "tfe_outputs" "vpc" {
+data "terraform_remote_state" "vpc" {
+  backend = "remote"
+
   config = {
     organization = "loreolaru"
     workspaces = {
@@ -7,12 +9,6 @@ data "tfe_outputs" "vpc" {
   }
 }
 
-
-
-
 output all {
-    value = dta.tfe_outputs.vpc.tfe_outputs
+    value = data.terraform_remote_state.vpc.outputs
 }
-
-
-
