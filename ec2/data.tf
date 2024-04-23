@@ -10,6 +10,24 @@ data "terraform_remote_state" "vpc" {
 }
 
 
+data "terraform_remote_state" "vpc" {
+  backend = "remote"
+
+  config = {
+    organization = "loreolaru"
+    workspaces = {
+      name = "rds"
+    }
+  }
+}
+
+
+}
+
+
+
+
+
 
 
 data "aws_ami" "ubuntu" {
